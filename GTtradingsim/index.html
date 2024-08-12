@@ -1,6 +1,22 @@
+<title>GT Trading Simulator!</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <h1>Growtopia Trading Simulator</h1>
 <p class="BGL" id="BGL"><img src="images/BGL.png">0</p>
 <p class="DL" id="DL"><img src="images/DL.png">0</p>
 <p class="WL" id="WL"><img src="images/WL.png">0</p>
 <p class="TRD" id="TRD">You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png"></p>
+<script>
+  WLS = 0
+  DLS = 0
+  BGLS = 0
+  function updatelocks() {
+  document.getElementById("WL").innerHTML = '<img src="images/WL.png">' + WLS;
+  document.getElementById("DL").innerHTML = '<img src="images/DL.png">' + DLS;
+  document.getElementById("BGL").innerHTML = '<img src="images/BGL.png">' + BGLS;
+  }
+  updatelocks();
+  document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
+  WLS = WLS + 1;
+  updatelocks();
+  
+</script>
