@@ -9,6 +9,7 @@
   WLS = 0
   DLS = 0
   BGLS = 0
+  USERLEVEL = 1
   function updatelocks() {
   document.getElementById("WL").innerHTML = '<img src="images/WL.png">' + WLS;
   document.getElementById("DL").innerHTML = '<img src="images/DL.png">' + DLS;
@@ -18,5 +19,23 @@
   document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
   WLS = WLS + 1;
   updatelocks();
-  
+setTimeout(function(){
+  if(WLS <= 49) {
+  random = Math.floor(Math.random() * 6);
+  };
+  if(WLS >= 49) {
+  random = Math.floor(Math.random() * 10);
+  };
+  if(DLS >= 50) {
+  random = Math.floor(Math.random() * 16);
+  };
+    if(BGLS <= 100) {
+ random = Math.floor(Math.random() * 22);
+  };
+  if (random == 1) {
+  document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
+  WLS = WLS + 1;
+  updatelocks();
+  }else if
+}, 1000);
 </script>
