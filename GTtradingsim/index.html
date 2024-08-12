@@ -52,7 +52,14 @@ setInterval(function () {
   document.getElementById("TRD").innerHTML = 'You begged for world locks. You got 3 <img src="images/WL.png">';
   WLS = WLS + 3;
   updatelocks();
-  }
+  }else if(random == 6) {
+  document.getElementById("TRD").innerHTML = 'You bought tons of farmables to farm them. You got 1 <img src="images/DL.png">';
+  DLS = DLS + 1;
+  updatelocks();  
+}else if(random == 7) {
+  document.getElementById("TRD").innerHTML = 'You tried a lazy profit tutorial. You got 2 <img src="images/DL.png"> It actually worked! :D';
+  DLS = DLS + 2;
+  updatelocks();  
 }, 100);
 function random() {
   if(WLS <= 49) {
