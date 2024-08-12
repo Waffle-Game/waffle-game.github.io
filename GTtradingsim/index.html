@@ -19,7 +19,8 @@
   document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
   WLS = WLS + 1;
   updatelocks();
-setTimeout(function(){
+  random();
+function random() {
   if(WLS <= 49) {
   random = Math.floor(Math.random() * 6);
   };
@@ -53,5 +54,6 @@ setTimeout(function(){
   WLS = WLS + 3;
   updatelocks();
   }
-}, 1000);
+  setTimeout(random, 3000);
+};
 </script>
