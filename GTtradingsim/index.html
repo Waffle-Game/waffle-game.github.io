@@ -23,7 +23,7 @@ setTimeout(function(){
   if(WLS <= 49) {
   random = Math.floor(Math.random() * 6);
   };
-  if(WLS >= 49) {
+  if(WLS >= 50) {
   random = Math.floor(Math.random() * 10);
   };
   if(DLS >= 50) {
@@ -33,9 +33,25 @@ setTimeout(function(){
  random = Math.floor(Math.random() * 22);
   };
   if (random == 1) {
-  document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
+  document.getElementById("TRD").innerHTML = 'You got your another trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
   WLS = WLS + 1;
   updatelocks();
-  }else if
+  }else if (random == 2) {
+  document.getElementById("TRD").innerHTML = 'You decided to trade lava seeds. You sold 400 lava seeds for 2 <img src="images/WL.png">';
+  WLS = WLS + 2;
+  updatelocks();
+  }else if(random == 3) {
+  document.getElementById("TRD").innerHTML = 'You made and sold a dirt farm. You sold it for 8 <img src="images/WL.png">';
+  WLS = WLS + 8;
+  updatelocks();
+  }else if(random == 4) {
+  document.getElementById("TRD").innerHTML = 'You won a giveaway. You ended up getting 10 <img src="images/WL.png">';
+  WLS = WLS + 10;
+  updatelocks();
+  }else if(random == 5) {
+  document.getElementById("TRD").innerHTML = 'You begged for world locks. You got 3 <img src="images/WL.png">';
+  WLS = WLS + 3;
+  updatelocks();
+  }
 }, 1000);
 </script>
