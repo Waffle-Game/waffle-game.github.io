@@ -48,7 +48,7 @@ setInterval(function () {
  random = Math.floor(Math.random() * 22);
   };
   if (random == 1) {
-  document.getElementById("TRD").innerHTML = 'You got your another trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
+  document.getElementById("TRD").innerHTML = 'You got another trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
   WLS = WLS + 1;
   updatelocks();
   }else if (random == 2) {
@@ -78,6 +78,16 @@ setInterval(function () {
 }else if(random == 8) {
   document.getElementById("TRD").innerHTML = 'You tried a lazy profit tutorial. You got 2 <img src="images/DL.png"> It actually worked! :D';
   DLS = DLS + 2;
+  updatelocks();
+}else if(random == 9) {
+  document.getElementById("TRD").innerHTML = 'You sold a full plat farm. You got 20 <img src="images/WL.png">';
+  WLS = WLS + 20;
   updatelocks();  
-  }; }, 100);
+  };
+}else if(random == 10) {
+  document.getElementById("TRD").innerHTML = 'You sold some a vend. You got 8 <img src="images/WL.png">';
+  WLS = WLS + 8;
+  updatelocks();  
+  };
+}, 100);
 </script>
