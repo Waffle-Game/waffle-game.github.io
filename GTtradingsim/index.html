@@ -4,6 +4,7 @@
 <p class="BGL" id="BGL"><img src="images/BGL.png">0</p>
 <p class="DL" id="DL"><img src="images/DL.png">0</p>
 <p class="WL" id="WL"><img src="images/WL.png">0</p>
+<button type="button" class="btn btn-success" onclick="conv1()">Convert 100 WLS into 1 DL</button> <button type="button" class="btn btn-success" onclick="conv2()">Convert 100 DLS into 1 BGL</button>
 <p class="TRD" id="TRD">You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png"></p>
 <script>
   WLS = 0
@@ -15,6 +16,20 @@
   document.getElementById("DL").innerHTML = '<img src="images/DL.png">' + DLS;
   document.getElementById("BGL").innerHTML = '<img src="images/BGL.png">' + BGLS;
   }
+  function conv1() {
+  if(WLS >= 100) {
+    WLS = WLS - 100;
+    DLS = DLS + 1;
+    updatelocks();
+  };
+  };
+function conv2() {
+  if(DLS >= 100) {
+    DLS = DLS - 100;
+    BGLS = BGLS + 1;
+    updatelocks();
+  };
+  };
   updatelocks();
   document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
   WLS = WLS + 1;
@@ -61,39 +76,4 @@ setInterval(function () {
   DLS = DLS + 2;
   updatelocks();  
   }; }, 100);
-function random() {
-  if(WLS <= 49) {
-  random = Math.floor(Math.random() * 6);
-  };
-  if(WLS >= 50) {
-  random = Math.floor(Math.random() * 10);
-  };
-  if(DLS >= 50) {
-  random = Math.floor(Math.random() * 16);
-  };
-    if(BGLS <= 100) {
- random = Math.floor(Math.random() * 22);
-  };
-  if (random == 1) {
-  document.getElementById("TRD").innerHTML = 'You got your another trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
-  WLS = WLS + 1;
-  updatelocks();
-  }else if (random == 2) {
-  document.getElementById("TRD").innerHTML = 'You decided to trade lava seeds. You sold 400 lava seeds for 2 <img src="images/WL.png">';
-  WLS = WLS + 2;
-  updatelocks();
-  }else if(random == 3) {
-  document.getElementById("TRD").innerHTML = 'You made and sold a dirt farm. You sold it for 8 <img src="images/WL.png">';
-  WLS = WLS + 8;
-  updatelocks();
-  }else if(random == 4) {
-  document.getElementById("TRD").innerHTML = 'You won a giveaway. You ended up getting 10 <img src="images/WL.png">';
-  WLS = WLS + 10;
-  updatelocks();
-  }else if(random == 5) {
-  document.getElementById("TRD").innerHTML = 'You begged for world locks. You got 3 <img src="images/WL.png">';
-  WLS = WLS + 3;
-  updatelocks();
-  }
-};
 </script>
