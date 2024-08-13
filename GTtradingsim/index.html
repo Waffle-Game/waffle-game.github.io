@@ -10,6 +10,8 @@
 <p class="VNDPROFIT" id="VNDPROFIT"><img src="images/VEND.png">Your vend world profit: you dont have one!</p>
 <p class="BFGPROFIT" id="BFGPROFIT"><img src="images/MAGPLANT.png">Your BFG world profit: you dont have one!</p>
 <p class="DONOPROFIT" id="DONOPROFIT"><img src="images/DONOBOX.png">Your donation box world profit: you dont have one!</p>
+<p class="VNDSPROFIT" id="VNDSPROFIT"><img src="images/HL.png">Your vend spot world profit: you dont have one!</p>
+<p class="LSPROFIT" id="LSPROFIT"><img src="images/LS.png">Your TOKO shop world profit: you dont have one!</p>
 <script>
   WLS = 0
   DLS = 0
@@ -19,6 +21,8 @@
   BFGOWNED = 0
   BFGSTOCK = 150
   DONOOWNED = 0
+  VNDSOWNED = 0
+  LSOWNED = 0
   USERLEVEL = 1
   function updatelocks() {
   document.getElementById("WL").innerHTML = '<img src="images/WL.png">' + WLS;
@@ -40,7 +44,7 @@ function conv2() {
   };
   };
   function shop() {
-document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
+document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buytw()">Make TOKO world for 15 BGLS</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
   };
 function closeshop() {
 document.getElementById("SHP").innerHTML = '';
@@ -62,6 +66,26 @@ BFGOWNED = 1;
 BGLS = BGLS - 10;
 updatelocks();
 document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world profit: you got your first BFG world!';
+};
+};
+};
+function buyvsw() {
+if(BGLS >= 20) {
+if(VNDSOWNED <= 0) {
+VNDSOWNED = 1;
+BGLS = BGLS - 20;
+updatelocks();
+document.getElementById("VNDSPROFIT").innerHTML = '<img src="images/HL.png">Your vend spot world profit: you just made it! now you need to wait for somebody to buy a spot.';
+};
+};
+};
+function buyls() {
+if(BGLS >= 15) {
+if(LSOWNED <= 0) {
+LSOWNED = 1;
+BGLS = BGLS - 15;
+updatelocks();
+document.getElementById("VNDSPROFIT").innerHTML = '<img src="images/LS.png">Your TOKO shop world profit: you just made it! now you need to wait for somebody to buy a spot.';
 };
 };
 };
@@ -149,7 +173,7 @@ DLS = DLS + vndrandom;
 updatelocks();
 VNDSTOCK = VNDSTOCK - 1;
 }else{
-document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world needs a restock! <button type="button" class="btn btn-success w-25" onclick="restockvend()">Restock!</button>';
+document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world needs a restock! (click on button multiple times) <button type="button" class="btn btn-success w-25" onclick="restockvend()">Restock!</button>';
 }; };
 }, 100);
 setInterval(function () {
@@ -161,7 +185,7 @@ DLS = DLS + bfgrandom;
 updatelocks();
 BFGSTOCK = BFGSTOCK - 1;
 }else{
-document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world needs a restock! <button type="button" class="btn btn-success w-25" onclick="restockbfg()">Restock!</button>';
+document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world needs a restock! (click on button multiple times) <button type="button" class="btn btn-success w-25" onclick="restockbfg()">Restock!</button>';
 }; };
 }, 100);
 setInterval(function () {
@@ -172,4 +196,20 @@ WLS = WLS + donorandom;
 updatelocks();
 };
 }, 100);
+setInterval(function () {
+if(VNDSOWNED >= 1) {
+vendsrandom = Math.floor(Math.random() * 3);
+document.getElementById("VNDSPROFIT").innerHTML = '<img src="images/HL.png">Your vend spot world profit: You sold a spot for ' + vendsrandom + ' <img src="images/BGL.png">';
+BGLS = BGLS + vendsrandom;
+updatelocks();
+};
+}, 1000);
+setInterval(function () {
+if(LSOWNED >= 1) {
+lsrandom = Math.floor(Math.random() * 6);
+document.getElementById("LSPROFIT").innerHTML = '<img src="images/LS.png">Your TOKO shop world profit: You sold a spot for ' + lsrandom + ' <img src="images/BGL.png">';
+BGLS = BGLS + lsrandom;
+updatelocks();
+};
+}, 1000);
 </script>
