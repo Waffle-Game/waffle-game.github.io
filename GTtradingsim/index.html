@@ -4,6 +4,7 @@
 <p class="BGL" id="BGL"><img src="images/BGL.png">0</p>
 <p class="DL" id="DL"><img src="images/DL.png">0</p>
 <p class="WL" id="WL"><img src="images/WL.png">0</p>
+<p class="GEM" id="GEM"><img src="images/GEM.png">0</p>
 <button type="button" class="btn btn-success" onclick="conv1()">Convert 100 WLS into 1 DL</button> <button type="button" class="btn btn-success" onclick="conv2()">Convert 100 DLS into 1 BGL</button> <button type="button" class="btn btn-success" onclick="shop()">Shop</button>
 <p class="SHP" id="SHP"></p>
 <p class="TRD" id="TRD">You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png"></p>
@@ -12,12 +13,12 @@
 <p class="DONOPROFIT" id="DONOPROFIT"><img src="images/DONOBOX.png">Your donation box world profit: you dont have one!</p>
 <p class="VNDSPROFIT" id="VNDSPROFIT"><img src="images/HL.png">Your vend spot world profit: you dont have one!</p>
 <p class="LSPROFIT" id="LSPROFIT"><img src="images/LS.png">Your TOKO shop world profit: you dont have one!</p>
-<p class="EPMPROFIT" id="EPMPROFIT"><img src="images/DL.png">Expensive profit method profit: you dont have one!</p>
-<p class="SEPMROFIT" id="SEPMPROFIT"><img src="images/BGL.png">Super expensive profit method profit: you dont have one!</p>
+<p class="FARMPROFIT" id="FARMPROFIT"><img src="images/TRACTOR.png">Farming profit: you dont have one!</p>
 <script>
   WLS = 0
   DLS = 0
   BGLS = 0
+  GEMS = 0
   VNDOWNED = 0
   VNDSTOCK = 100
   BFGOWNED = 0
@@ -30,6 +31,7 @@
   document.getElementById("WL").innerHTML = '<img src="images/WL.png">' + WLS;
   document.getElementById("DL").innerHTML = '<img src="images/DL.png">' + DLS;
   document.getElementById("BGL").innerHTML = '<img src="images/BGL.png">' + BGLS;
+  document.getElementById("GEM").innerHTML = '<img src="images/GEM.png">' + GEMS;
   }
   function conv1() {
   if(WLS >= 100) {
@@ -46,7 +48,7 @@ function conv2() {
   };
   };
   function shop() {
-document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyls()">Make TOKO world for 15 BGLS</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
+document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyls()">Make TOKO world for 15 BGLS</button><br><br><img src="images/GEM.png"><b>Gem Shop</b><br><button type="button" class="btn btn-success" onclick="buywlgems()">Buy World Lock for 2,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buydlgems()">Buy Diamond Lock for 200,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buybglgems()">Buy Blue Gem Lock for 20,000,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buyacgems()">Buy auto convert WLS/DLS for 100,000 gems</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
   };
 function closeshop() {
 document.getElementById("SHP").innerHTML = '';
