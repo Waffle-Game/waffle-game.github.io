@@ -48,7 +48,7 @@ function conv2() {
   };
   };
   function shop() {
-document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyls()">Make TOKO world for 15 BGLS</button><br><br><img src="images/GEM.png"><b>Gem Shop</b><br><button type="button" class="btn btn-success" onclick="buywlgems()">Buy World Lock for 2,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buydlgems()">Buy Diamond Lock for 200,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buybglgems()">Buy Blue Gem Lock for 20,000,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buyacgems()">Buy auto convert WLS/DLS for 100,000 gems</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
+document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyls()">Make TOKO world for 15 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyfw()">Buy farm world for 15 BGL</button><br><br><img src="images/GEM.png"><b>Gem Shop</b><br><button type="button" class="btn btn-success" onclick="buywlgems()">Buy World Lock for 2,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buydlgems()">Buy Diamond Lock for 200,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buybglgems()">Buy Blue Gem Lock for 20,000,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buyacgems()">Buy auto convert WLS/DLS for 100,000 gems</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
   };
 function closeshop() {
 document.getElementById("SHP").innerHTML = '';
@@ -215,7 +215,13 @@ setInterval(function () {
 if(BFGOWNED >= 1) {
 if(BFGSTOCK >= 1) {
 bfgrandom = Math.floor(Math.random() * 46);
+if(FARMOWNED <= 0) {
 document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world profit: ' + bfgrandom + ' <img src="images/DL.png">';
+}else{
+bfgrandom2 = Math.floor(Math.random() * 46);
+document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world profit: ' + bfgrandom + ' <img src="images/DL.png"> (Farm bonus! ' + bfgrandom2 + '<img src="images/DL.png">)';
+DLS = DLS + bfgrandom2;
+};
 DLS = DLS + bfgrandom;
 updatelocks();
 BFGSTOCK = BFGSTOCK - 1;
@@ -247,4 +253,12 @@ BGLS = BGLS + lsrandom;
 updatelocks();
 };
 }, 1000);
+setInterval(function () {
+if(FARMOWNED >= 1) {
+fwrandom = Math.floor(Math.random() * 25001);
+document.getElementById("FARMPROFIT").innerHTML = '<img src="images/TRACTOR.png">Farming profit: You farmed ' + fwrandom + ' <img src="images/GEM.png">';
+BGLS = BGLS + lsrandom;
+updatelocks();
+};
+}, 100);
 </script>
