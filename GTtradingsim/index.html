@@ -40,13 +40,12 @@ document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop<
 <button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br>
 <button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>
   ';
-  }
+  };
 function closeshop() {
-
-}
+document.getElementById("SHP").innerHTML = '';
+};
   updatelocks();
   document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
-  document.getElementById("SHP").innerHTML = '';
   WLS = WLS + 1;
   updatelocks();
 setInterval(function () {
