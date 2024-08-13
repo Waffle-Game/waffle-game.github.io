@@ -124,6 +124,16 @@ GEMS = GEMS - 20000000;
 updatelocks();
 };
 };
+function buyfw() {
+if(BGLS >= 15) {
+if(FARMOWNED <= 0) {
+FARMOWNED = 1;
+BGLS = BGLS - 15;
+updatelocks();
+document.getElementById("FARMPROFIT").innerHTML = '<img src="images/TRACTOR.png">Farming profit: just growing some trees!';
+};
+};
+};
 function restockvend() {
 VNDSTOCK = 100
 };
