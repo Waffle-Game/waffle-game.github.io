@@ -94,16 +94,6 @@ document.getElementById("LSPROFIT").innerHTML = '<img src="images/LS.png">Your T
 };
 };
 };
-function buyfw() {
-if(BGLS >= 15) {
-if(FARMOWNED <= 0) {
-FARMOWNED = 1;
-BGLS = BGLS - 15;
-updatelocks();
-document.getElementById("FARMPROFIT").innerHTML = '<img src="images/TRACTOR.png">Farming profit: just growing some trees!';
-};
-};
-};
 function buydono() {
 if(DLS >= 10) {
 if(DONOOWNED <= 0) {
