@@ -9,12 +9,15 @@
 <p class="TRD" id="TRD">You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png"></p>
 <p class="VNDPROFIT" id="VNDPROFIT"><img src="images/VEND.png">Your vend world profit: you dont have one!</p>
 <p class="BFGPROFIT" id="BFGPROFIT"><img src="images/MAGPLANT.png">Your BFG world profit: you dont have one!</p>
+<p class="DONOPROFIT" id="DONOPROFIT"><img src="images/DONOBOX.png">Your donation box world profit: you dont have one!</p>
 <script>
   WLS = 0
   DLS = 0
   BGLS = 0
   VNDOWNED = 0
+  VNDSTOCK = 100
   BFGOWNED = 0
+  BFGSTOCK = 150
   DONOOWNED = 0
   USERLEVEL = 1
   function updatelocks() {
@@ -41,6 +44,42 @@ document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop<
   };
 function closeshop() {
 document.getElementById("SHP").innerHTML = '';
+};
+function buyvend() {
+if(BGLS >= 1) {
+if(VNDOWNED <= 0) {
+VNDOWNED = 1;
+BGLS = BGLS - 1;
+updatelocks();
+document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world profit: you got your first vend world!';
+};
+};
+};
+function buybfg() {
+if(BGLS >= 10) {
+if(BFGOWNED <= 0) {
+BFGOWNED = 1;
+BGLS = BGLS - 10;
+updatelocks();
+document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world profit: you got your first BFG world!';
+};
+};
+};
+function buydono() {
+if(DLS >= 10) {
+if(DONOOWNED <= 0) {
+DONOOWNED = 1;
+DLS = DLS - 10;
+updatelocks();
+document.getElementById("DONOPROFIT").innerHTML = '<img src="images/DONOBOX.png">Your donation box world profit: you got your first donation box world!';
+};
+};
+};
+function restockvend() {
+VNDSTOCK = 100
+};
+function restockbfg() {
+BFGSTOCK = 150
 };
   updatelocks();
   document.getElementById("TRD").innerHTML = 'You got your first trade done. You traded 200 dirt for 1 <img src="images/WL.png">';
@@ -100,5 +139,37 @@ setInterval(function () {
   WLS = WLS + 8;
   updatelocks();  
   };
+}, 100);
+setInterval(function () {
+if(VNDOWNED >= 1) {
+if(VNDSTOCK >= 1) {
+vndrandom = Math.floor(Math.random() * 11);
+document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world profit: ' + vndrandom + ' <img src="images/DL.png">';
+DLS = DLS + vndrandom;
+updatelocks();
+VNDSTOCK = VNDSTOCK - 1;
+}else{
+document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world needs a restock! <button type="button" class="btn btn-success" onclick="restockvend()">Restock!</button>';
+};
+}, 100);
+setInterval(function () {
+if(BFGOWNED >= 1) {
+if(BFGSTOCK >= 1) {
+bfgrandom = Math.floor(Math.random() * 46);
+document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world profit: ' + bfgrandom + ' <img src="images/DL.png">';
+DLS = DLS + bfgrandom;
+updatelocks();
+BFGSTOCK = BFGSTOCK - 1;
+}else{
+document.getElementById("BFGPROFIT").innerHTML = '<img src="images/MAGPLANT.png">Your BFG world needs a restock! <button type="button" class="btn btn-success" onclick="restockbfg()">Restock!</button>';
+};
+}, 100);
+setInterval(function () {
+if(DONOOWNED >= 1) {
+donorandom = Math.floor(Math.random() * 56);
+document.getElementById("DONOPROFIT").innerHTML = '<img src="images/DONOBOX.png">Your donation box world profit: ' + donorandom + ' <img src="images/WL.png">';
+WLS = WLS + donorandom;
+updatelocks();
+};
 }, 100);
 </script>
