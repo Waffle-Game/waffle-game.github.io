@@ -50,13 +50,16 @@ function conv2() {
   };
   };
   function shop() {
-  if(SHOPOWNED = 0) {
+  if(SHOPOPENED == 0) {
+    SHOPOPENED = 1
 document.getElementById("SHP").innerHTML = '<img src="images/LOCKE.png"><b>Shop</b><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button><br><br><button type="button" class="btn btn-success" onclick="buyvend()">Buy vend world for 1 BGL</button><br><br><button type="button" class="btn btn-success" onclick="buybfg()">Buy BFG world for 10 BGL (expensive cuz of magplant)</button><br><br><button type="button" class="btn btn-success" onclick="buydono()">Buy donation world for 10 DLS</button><br><br><button type="button" class="btn btn-success" onclick="buyvsw()">Make vend spot world for 20 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyls()">Make TOKO world for 15 BGLS</button><br><br><button type="button" class="btn btn-success" onclick="buyfw()">Buy farm world for 15 BGL</button><br><br><img src="images/GEM.png"><b>Gem Shop</b><br><button type="button" class="btn btn-success" onclick="buywlgems()">Buy World Lock for 2,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buydlgems()">Buy Diamond Lock for 200,000 gems</button><br><br><button type="button" class="btn btn-success" onclick="buybglgems()">Buy Blue Gem Lock for 20,000,000 gems</button><br><br><button type="button" class="btn btn-danger" onclick="closeshop()">Close</button>';
   }else{
+    SHOPOPENED = 0
     document.getElementById("SHP").innerHTML = '';
   }
   };
 function closeshop() {
+SHOPOPENED = 0
 document.getElementById("SHP").innerHTML = '';
 };
 function buyvend() {
