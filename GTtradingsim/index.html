@@ -204,7 +204,13 @@ setInterval(function () {
 if(VNDOWNED >= 1) {
 if(VNDSTOCK >= 1) {
 vndrandom = Math.floor(Math.random() * 11);
+if(VNDSPROFIT <= 0) {
 document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world profit: ' + vndrandom + ' <img src="images/DL.png">';
+}else{
+vndrandom2 = Math.floor(Math.random() * 56);
+document.getElementById("VNDPROFIT").innerHTML = '<img src="images/VEND.png">Your vend world profit: ' + vndrandom + ' <img src="images/DL.png"> (Vend spot bonus! ') + vndrandom2 + ' <img src="images/DL.png">';
+DLS = DLS + vndrandom2;
+};
 DLS = DLS + vndrandom;
 updatelocks();
 VNDSTOCK = VNDSTOCK - 1;
@@ -241,7 +247,13 @@ updatelocks();
 setInterval(function () {
 if(VNDSOWNED >= 1) {
 vendsrandom = Math.floor(Math.random() * 3);
+if(VNDOWNED <= 0) {
 document.getElementById("VNDSPROFIT").innerHTML = '<img src="images/HL.png">Your vend spot world profit: You sold a spot for ' + vendsrandom + ' <img src="images/BGL.png">';
+}else{
+vendsrandom2 = Math.floor(Math.random() * 6);
+document.getElementById("VNDSPROFIT").innerHTML = '<img src="images/HL.png">Your vend spot world profit: You sold a spot for ' + vendsrandom + ' <img src="images/BGL.png"> (Vend world bonus! ' + vendsrandom2 + ' <img src="images/BGL.png">)';
+BGLS = BGLS + vendsrandom2;
+};
 BGLS = BGLS + vendsrandom;
 updatelocks();
 };
@@ -257,7 +269,13 @@ updatelocks();
 setInterval(function () {
 if(FARMOWNED >= 1) {
 fwrandom = Math.floor(Math.random() * 100001);
+if(BFGOWNED <= 0) {
 document.getElementById("FARMPROFIT").innerHTML = '<img src="images/TRACTOR.png">Farming profit: You farmed ' + fwrandom + ' <img src="images/GEM.png">';
+}else{
+fwrandom2 = Math.floor(Math.random() * 25001);
+document.getElementById("FARMPROFIT").innerHTML = '<img src="images/TRACTOR.png">Farming profit: You farmed ' + fwrandom + ' <img src="images/GEM.png"> (BFG bonus! ' + fwrandom2 + ' <img src="images/GEM.png">)';
+GEMS = GEMS + fwrandom2;
+}
 GEMS = GEMS + fwrandom;
 updatelocks();
 };
