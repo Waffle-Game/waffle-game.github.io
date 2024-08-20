@@ -1,4 +1,4 @@
-import { Octokit } from "octokit";
+import { Octokit, App } from "https://esm.sh/octokit";
 const octokit = new Octokit({ });
 var parts = window.location.search.substr(1).split("&");
 var $_GET = {};
